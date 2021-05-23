@@ -1,3 +1,7 @@
+#  ---------------------------------
+# | Chapter 4: Three-Point Formula  |
+#  ---------------------------------
+
 #Initializing Arrays
 
 ValuesOf_x = []
@@ -29,16 +33,14 @@ def ThreePoint_EndPoint(x0,h):
 def f(x):
     x = round(x,2)
     for i in range(TotalNumOfValues):
-        # print("Value of x: ",ValuesOf_x[i])
         if x == ValuesOf_x[i]:
             return ValuesOf_fx[i]
     return 0
 
 #Getting total number of values of x for table 
 
-TotalNumOfValues = input("Enter total number of values of x: ")
+TotalNumOfValues = input("\nEnter total number of values of x: ")
 TotalNumOfValues = int(TotalNumOfValues)
-print(TotalNumOfValues)
 
 #Getting values of x and f(x) for table 
 
@@ -77,8 +79,33 @@ while(Option == 1):
         Result = Result = ThreePoint_EndPoint(x0,(h*-1))
         Result = round(Result,6)
     print("\n-----------------------------------------------------\n")
-    print("f'(",x0,"): ",Result)
+    print(" x \t|\t  f(x)")
+    for i in range(TotalNumOfValues):
+        print(ValuesOf_x[i] , "\t|\t" , ValuesOf_fx[i])
+    print("\nf'(",x0,"): ",Result)
 
     print("\nDo you wish to continue? \n1.Yes \n2.No")
     Option = input()
     Option = int(Option)
+
+#Test Case 1
+
+#Enter total number of values of x: 4
+# Enter Value of x 1
+# 1.1
+# Enter Value of f(x 1 )
+# 9.025013
+# Enter Value of x 2
+# 1.2
+# Enter Value of f(x 2 )
+# 11.02318
+# Enter Value of x 3
+# 1.3
+# Enter Value of f(x 3 )
+# 13.46374
+# Enter Value of x 4
+# 1.4
+# Enter Value of f(x 4 )
+# 16.44465
+# Enter the value of x0: 1.3
+# Enter the value of h: 0.2

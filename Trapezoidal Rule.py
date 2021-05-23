@@ -1,4 +1,11 @@
+#  --------------------------------- 
+# | Chapter 4: Trapezoidal Rule     |
+#  ---------------------------------
+
+
 #Function to calculate trapezoidal rule
+
+import msvcrt
 
 def Trapezoidal_Rule(f0,f1,h):
     a = h/2
@@ -14,7 +21,7 @@ def Calculate_h(b,a,n):
 
 #Getting upper limit and lower limit
 
-LowerLimit = input("Enter Lower Limit of the Function: ")
+LowerLimit = input("\nEnter Lower Limit of the Function: ")
 LowerLimit = float(LowerLimit)
 
 UpperLimit = input("Enter Upper Limit of the Function: ")
@@ -41,4 +48,17 @@ Result = Trapezoidal_Rule(Function_LowerLimit,Function_UpperLimit,h)
 Result = float(Result)
 
 print("\n-----------------------------------------------------\n")
-print("Integeral of function under the limit [",LowerLimit,",",UpperLimit, "]: " , Result ,"using Trapezoidal Rule")
+print(" x \t|\t f(x)")
+print(LowerLimit ,"\t|\t" , Function_LowerLimit)
+print(UpperLimit , "\t|\t" , Function_UpperLimit)
+print("\nIntegeral of function under the limit [",LowerLimit,",",UpperLimit, "]: " , Result ,"using Trapezoidal Rule")
+
+char = msvcrt.getch()
+# Test Case 1
+
+# Enter Lower Limit of the Function: 0.5
+# Enter Upper Limit of the Function: 1
+# Enter value of f( 0.5 )
+# 0.0625
+# Enter value of f( 1.0 )
+# 1
