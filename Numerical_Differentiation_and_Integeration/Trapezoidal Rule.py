@@ -5,7 +5,7 @@
 
 #Function to calculate trapezoidal rule
 
-import msvcrt
+
 
 def Trapezoidal_Rule(f0,f1,h):
     a = h/2
@@ -53,7 +53,7 @@ print(LowerLimit ,"\t|\t" , Function_LowerLimit)
 print(UpperLimit , "\t|\t" , Function_UpperLimit)
 print("\nIntegeral of function under the limit [",LowerLimit,",",UpperLimit, "]: " , Result ,"using Trapezoidal Rule")
 
-char = msvcrt.getch()
+input()
 # Test Case 1
 
 # Enter Lower Limit of the Function: 0.5
