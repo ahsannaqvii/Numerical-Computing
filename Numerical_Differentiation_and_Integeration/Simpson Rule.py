@@ -4,8 +4,6 @@
 
 #Function to calculate trapezoidal rule
 
-import msvcrt
-
 def Simpson_Rule(f0,f1,f2,h):
     a = h/3
     b = f0 + (4 * f1) + f2
@@ -57,7 +55,7 @@ print(LowerLimit ,"\t|\t" , Function_LowerLimit)
 print(h ,"\t|\t" , Function_MiddleLimit)
 print(UpperLimit , "\t|\t" , Function_UpperLimit)
 print("\nIntegeral of function under the limit [",LowerLimit,",",UpperLimit, "]: " , Result , "using Simspson Rule")
-char = msvcrt.getch()
+input()
 
 # Test Case 1
 
