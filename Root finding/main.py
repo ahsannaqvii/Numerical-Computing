@@ -1,6 +1,7 @@
 import math
 from tabulate import tabulate
 import sympy as sp
+import os
 
 
 # -------------------------------------------------------
@@ -156,53 +157,60 @@ def secant_method(P0, P1,f,error,truevalue,roundvalue):   #secant method
 
 # --------------------------------------------------------
 #main:
-
-str_expression=input("Enter equation: ")
-error=float(input("Enter tolerance error value: "))
-roundvalue=int(-1*math.log10(error))+1
-truevalue=float(input("Enter true value of root if known, otherwise enter 0: "))
-print()
-x,y=sp.symbols('x y')
-f=sp.lambdify(x,sp.sympify(str_expression))
-
-ch=int(input("1. Bisection\n2. Regula falsi\n3. Newton\n4. Secant\n\nEnter choice: "))
-if ch==1:
-
-    a, b = [float(x) for x in input("Enter interval separated by space: ").split()]
-    if (f(a) * f(b)) > 0:
-        print("No real roots on this interval")
-    else:
-        print()
-        bisection_method(a,b,f,error,truevalue,roundvalue)
-
-elif ch==2:
-
-    a, b= [float(x) for x in input("Enter interval separated by space: ").split()]
-    if (f(a) * f(b)) > 0:
-        print("No real roots on this interval")
-    else:
-        print()
-        regula_falsi_method(a, b, f,error,truevalue,roundvalue)
-
-elif ch==3:
-    a, b= [float(x) for x in input("Enter interval separated by space: ").split()]
+print("Installing required modules")
+os.system("pip install tabulate sympy mpmath")
 
 
-    if (sp.N(f(a)) * sp.N(f(b))) > 0:
-        print("No real roots on this interval")
-    else:
-        f_prime = sp.lambdify(x, sp.diff(sp.sympify(str_expression), x))
-        print()
-        newton_method((a+b)/2,f,f_prime,error,truevalue,roundvalue)
+choice="y"
 
-elif ch==4:
-    P0, P1 = [float(x) for x in input("Enter interval separated by space: ").split()]
-    if (f(P0) * f(P1)) > 0:
-        print("No real roots on this interval")
-    else:
-        print()
-        secant_method(P0, P1, f, error, truevalue,roundvalue)
+while(choice=="y" or choice =="Y"):
+    os.system("cls")
+    str_expression=input("Enter equation: ")
+    error=float(input("Enter tolerance error value: "))
+    roundvalue=int(-1*math.log10(error))+1
+    truevalue=float(input("Enter true value of root if known, otherwise enter 0: "))
+    print()
+    x,y=sp.symbols('x y')
+    f=sp.lambdify(x,sp.sympify(str_expression))
+
+    ch=int(input("1. Bisection\n2. Regula falsi\n3. Newton\n4. Secant\n\nEnter choice: "))
+    if ch==1:
+
+        a, b = [float(x) for x in input("Enter interval separated by space: ").split()]
+        if (f(a) * f(b)) > 0:
+            print("No real roots on this interval")
+        else:
+            print()
+            bisection_method(a,b,f,error,truevalue,roundvalue)
+
+    elif ch==2:
+
+        a, b= [float(x) for x in input("Enter interval separated by space: ").split()]
+        if (f(a) * f(b)) > 0:
+            print("No real roots on this interval")
+        else:
+            print()
+            regula_falsi_method(a, b, f,error,truevalue,roundvalue)
+
+    elif ch==3:
+        a, b= [float(x) for x in input("Enter interval separated by space: ").split()]
 
 
+        if (sp.N(f(a)) * sp.N(f(b))) > 0:
+            print("No real roots on this interval")
+        else:
+            f_prime = sp.lambdify(x, sp.diff(sp.sympify(str_expression), x))
+            print()
+            newton_method((a+b)/2,f,f_prime,error,truevalue,roundvalue)
+
+    elif ch==4:
+        P0, P1 = [float(x) for x in input("Enter interval separated by space: ").split()]
+        if (f(P0) * f(P1)) > 0:
+            print("No real roots on this interval")
+        else:
+            print()
+            secant_method(P0, P1, f, error, truevalue,roundvalue)
+
+    choice=str(input("Do you want to continue (Y or N): "))
 
 input()
